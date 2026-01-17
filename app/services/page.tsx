@@ -94,12 +94,12 @@ export default function ServicesPage() {
             >
               {/* Image */}
               <div className={index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}>
-                <div className="relative h-72 md:h-96 w-full" style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 5% 100%)' }}>
+                <div className={`relative h-72 md:h-96 w-full ${index % 2 === 0 ? 'organic-shape' : 'organic-shape-alt'}`}>
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover rounded-3xl"
+                    className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
