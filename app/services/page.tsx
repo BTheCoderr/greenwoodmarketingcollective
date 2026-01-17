@@ -56,7 +56,7 @@ export default function ServicesPage() {
     <>
       {/* Hero Section */}
       <div className="pt-20">
-        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&h=1080&fit=crop&q=80"
@@ -66,40 +66,40 @@ export default function ServicesPage() {
               priority
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/20" />
           </div>
           <div className="relative z-10 container-custom px-5 text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white uppercase tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white uppercase tracking-wide">
               Solutions for Success
             </h1>
           </div>
-          {/* Wave Divider */}
+          {/* Organic Wave Divider */}
           <div className="absolute bottom-0 left-0 right-0 z-10">
-            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#F5F1EB"/>
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-24">
+              <path d="M0,100 C200,80 400,60 600,70 C800,80 1000,90 1200,85 C1300,82.5 1400,85 1440,90 L1440,100 L0,100 Z" fill="#F5F1EB"/>
             </svg>
           </div>
         </section>
       </div>
 
       {/* Services Sections */}
-      <section className="section-padding bg-beige-DEFAULT">
-        <div className="container-custom">
+      <section className="py-16 md:py-24 px-5 bg-beige-DEFAULT">
+        <div className="max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`mb-20 last:mb-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+              className={`mb-16 md:mb-24 last:mb-0 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center ${
                 index % 2 === 0 ? '' : 'lg:flex-row-reverse'
               }`}
             >
               {/* Image */}
               <div className={index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}>
-                <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden">
+                <div className="relative h-72 md:h-96 w-full" style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 5% 100%)' }}>
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-3xl"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
@@ -107,13 +107,13 @@ export default function ServicesPage() {
 
               {/* Content */}
               <div className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-teal-dark mb-4 uppercase">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-teal-dark mb-3 uppercase leading-tight">
                   {service.title}
                 </h2>
-                <p className="text-lg md:text-xl text-coral-DEFAULT italic mb-6">
+                <p className="text-base md:text-lg text-coral-DEFAULT italic mb-4 font-serif">
                   {service.subtitle}
                 </p>
-                <p className="text-lg text-text-secondary leading-relaxed">
+                <p className="text-base md:text-lg text-text-primary leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -123,32 +123,38 @@ export default function ServicesPage() {
       </section>
 
       {/* Hourly Sessions Section */}
-      <section className="section-padding bg-coral-DEFAULT text-white">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-16 md:py-24 px-5 bg-coral-DEFAULT text-white relative overflow-hidden">
+        {/* Wave Divider Top */}
+        <div className="absolute top-0 left-0 right-0 -mt-1">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
+            <path d="M0,0 C200,20 400,40 600,35 C800,30 1000,20 1200,25 C1300,27.5 1400,25 1440,30 L1440,0 L0,0 Z" fill="#F5F1EB"/>
+          </svg>
+        </div>
+        <div className="max-w-7xl mx-auto pt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 uppercase">
                 Hourly Sessions
               </h2>
-              <div className="space-y-6">
-                <p className="text-xl font-semibold">
+              <div className="space-y-4 md:space-y-6">
+                <p className="text-lg md:text-xl font-semibold">
                   Need clarity on your marketing - but not quite ready for a full project or retainer?
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   Book a focused 1:1 session to tackle your biggest marketing questions, get expert insight, and walk away with next steps you can actually implement.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   Whether you're navigating a rebrand, launching a new product, or just need an outside eye on your messaging - we'll use this time to get you unstuck and moving forward.
                 </p>
                 <Link
                   href="/hourlysessions"
-                  className="inline-block bg-white text-coral-DEFAULT px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors mt-4"
+                  className="inline-block bg-white text-coral-DEFAULT px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-gray-100 transition-colors mt-4"
                 >
                   View our options & pricing
                 </Link>
               </div>
             </div>
-            <div className="relative h-96 rounded-xl overflow-hidden">
+            <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80"
                 alt="Collaborative work session"
@@ -162,26 +168,26 @@ export default function ServicesPage() {
       </section>
 
       {/* Brand Quote Section */}
-      <section className="section-padding bg-gradient-to-br from-teal-dark via-teal-DEFAULT to-teal-light relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <section className="py-16 md:py-24 px-5 bg-gradient-to-br from-teal-dark via-teal-DEFAULT to-teal-light relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-0 w-64 h-64 bg-coral-DEFAULT rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-beige-DEFAULT rounded-full blur-3xl" />
         </div>
-        <div className="relative z-10 container-custom text-center">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white italic max-w-4xl mx-auto">
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white italic leading-relaxed">
             "Authenticity is the cornerstone of memorable brands. We help you express yours with confidence."
           </p>
         </div>
       </section>
 
       {/* Meet Your CMO Section */}
-      <section className="section-padding bg-teal-DEFAULT text-white">
-        <div className="container-custom">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 uppercase text-center">
+      <section className="py-16 md:py-24 px-5 bg-teal-DEFAULT text-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-12 uppercase text-center leading-tight">
             Meet Your Fractional CMO & Product Marketing Leader
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px] rounded-xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop&q=80"
                 alt="Courtney Greenwood"
@@ -190,28 +196,28 @@ export default function ServicesPage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <div>
-                <h3 className="text-3xl font-bold mb-2">Courtney Greenwood</h3>
-                <p className="text-xl text-white/80">Founder & Owner</p>
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">Courtney Greenwood</h3>
+                <p className="text-lg md:text-xl text-white/80">Founder & Owner</p>
               </div>
               <div className="space-y-4">
-                <p className="text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   Is your growth-stage company ready to scale its marketing impact? Perhaps you need C-level marketing leadership without the full-time investment. Maybe your product needs stronger market positioning and go-to-market execution. Or maybe you have an ambitious vision that needs to be operationalized into measurable results. That's exactly where <span className="text-coral-DEFAULT font-semibold">Greenwood Marketing Collective</span> delivers.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   We provide fractional CMO expertise and product marketing leadership that transforms marketing from a cost center into your primary growth engine. From strategic planning and team development to product positioning and sales enablement, we bring the executive-level thinking and hands-on execution to accelerate your market success.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   Backed by over 15+ years of product marketing and strategic leadership experience, with a proven track record of turning innovative visions into measurable business outcomes. No theoretical frameworks or generic playbooks—just strategic, results-driven marketing leadership with the operational excellence to make it happen.
                 </p>
-                <p className="text-lg leading-relaxed font-semibold">
+                <p className="text-base md:text-lg leading-relaxed font-semibold">
                   Let's transform your marketing vision into sustainable growth.
                 </p>
               </div>
               <Link
                 href="/contact"
-                className="inline-block border-2 border-coral-DEFAULT text-coral-DEFAULT px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-DEFAULT hover:text-white transition-colors mt-4"
+                className="inline-block border-2 border-coral-DEFAULT text-coral-DEFAULT px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-coral-DEFAULT hover:text-white transition-colors mt-4"
               >
                 Ready to Jump In?
               </Link>
