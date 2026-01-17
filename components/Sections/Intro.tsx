@@ -41,9 +41,12 @@ export default function Intro() {
           Transform your marketing vision into measurable results.
         </h2>
         
-        <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-6 max-w-3xl mx-auto">
           Growth-stage companies need marketing leadership that bridges strategy and execution. At{' '}
-          <span className="font-semibold text-primary">Greenwood Marketing Collective</span>, we provide fractional CMO expertise and product marketing excellence that turns your product vision into market success. We partner with scaling organizations that need C-level marketing leadership without the full-time investment.
+          <span className="font-semibold text-primary">Greenwood Marketing Collective</span>, we provide fractional CMO expertise and product marketing excellence that turns your product vision into market success.
+        </p>
+        <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto">
+          We partner with scaling organizations that need C-level marketing leadership without the full-time investment. Our approach combines strategic oversight with hands-on execution, ensuring your product finds its market, your messaging resonates, and your go-to-market efforts drive sustainable growth.
         </p>
 
         {/* Divider */}
