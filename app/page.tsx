@@ -17,17 +17,18 @@ export default function Home() {
       <PricingCards />
       <ValueSection
         headline="Ready to operationalize your vision?"
-        content="Strategic implementation is where vision meets reality. We help you translate high-level goals into actionable marketing plans, clear processes, and measurable KPIs. Our fractional CMO approach ensures your marketing operations align with business objectives while maintaining flexibility for rapid iteration."
+        content="Greenwood Marketing Collective specializes in taking your ambitious marketing vision and building the strategic framework, processes, and team capabilities to make it reality. We transform high-level concepts into executable plans that drive consistent, measurable growth."
         ctaText="Level-Up Today"
         imageSide="right"
-        background="cream"
+        background="dark-blue"
       />
       <ValueSection
         headline="Product Marketing Mastery"
-        content="Effective product marketing goes beyond features—it's about positioning, buyer journeys, and market fit. We craft compelling narratives that resonate with your target audience, develop go-to-market strategies that drive adoption, and create sales enablement materials that convert. Our expertise spans from early-stage positioning to mature product launches."
+        subheadline="Positioning that captures market share"
+        content="We architect comprehensive product marketing strategies that position your solution as the category leader. From market research and competitive analysis to messaging frameworks and sales enablement, we ensure your product story resonates with buyers and drives conversion at every stage of the customer journey."
         ctaText="Let's Chat"
         imageSide="left"
-        background="warm"
+        background="dark-teal"
       />
       <BlogPreview />
       <Newsletter />
