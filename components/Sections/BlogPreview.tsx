@@ -79,9 +79,7 @@ export default function BlogPreview() {
               key={post.title}
               className="blog-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 opacity-0"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/20 to-primary-dark/20 flex items-center justify-center">
-                <span className="text-5xl">📝</span>
-              </div>
+              <div className="h-48 bg-gradient-to-br from-primary/10 to-primary-dark/10" />
               <div className="p-6">
                 <p className="text-sm text-text-light mb-2">{post.date}</p>
                 <h3 className="text-xl font-bold text-primary-dark mb-3">

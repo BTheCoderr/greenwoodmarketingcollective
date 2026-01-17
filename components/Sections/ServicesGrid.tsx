@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 
+import Icon from '@/components/Icons/Icon'
+
 interface Service {
   icon: string
   title: string
@@ -13,32 +15,32 @@ export default function ServicesGrid() {
 
   const services: Service[] = [
     {
-      icon: '👔',
+      icon: 'cmo',
       title: 'Fractional CMO Leadership',
       description: 'Strategic marketing leadership on a flexible, fractional basis. Get C-level expertise without the full-time commitment.',
     },
     {
-      icon: '📊',
+      icon: 'product',
       title: 'Product Marketing Excellence',
       description: 'Position your products for market success with data-driven strategies and compelling narratives that resonate.',
     },
     {
-      icon: '🎯',
+      icon: 'vision',
       title: 'Operationalizing Your Vision',
       description: 'Turn your strategic vision into actionable marketing plans with clear roadmaps and measurable outcomes.',
     },
     {
-      icon: '💼',
+      icon: 'sales',
       title: 'Sales Enablement Support',
       description: 'Empower your sales team with the tools, messaging, and materials they need to close more deals.',
     },
     {
-      icon: '🚀',
+      icon: 'gtm',
       title: 'Go-To-Market Strategy & Execution',
       description: 'Launch products successfully with comprehensive GTM strategies that align teams and drive market adoption.',
     },
     {
-      icon: '✍️',
+      icon: 'brand',
       title: 'Brand Storytelling & Narrative Creation',
       description: 'Craft authentic brand stories that connect with your audience and differentiate you in competitive markets.',
     },
@@ -90,7 +92,9 @@ export default function ServicesGrid() {
               key={service.title}
               className="service-card bg-white border border-gray-200 rounded-xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 opacity-0"
             >
-              <div className="text-5xl mb-5">{service.icon}</div>
+              <div className="w-12 h-12 mb-5 text-primary flex items-center justify-center">
+                <Icon name={service.icon} className="w-8 h-8" />
+              </div>
               <h3 className="text-xl font-bold text-primary-dark mb-3">
                 {service.title}
               </h3>

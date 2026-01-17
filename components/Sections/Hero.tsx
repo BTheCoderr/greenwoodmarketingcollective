@@ -1,14 +1,11 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { useInView } from 'framer-motion'
-
 export default function Hero() {
   const offerings = [
-    { icon: '🚀', text: 'Go-to-Market' },
-    { icon: '📊', text: 'Product Marketing Excellence' },
-    { icon: '👔', text: 'Fractional CMO Leadership' },
-    { icon: '🎯', text: 'Vision Implementation' },
+    { text: 'Go-to-Market' },
+    { text: 'Product Marketing Excellence' },
+    { text: 'Fractional CMO Leadership' },
+    { text: 'Vision Implementation' },
   ]
 
   return (
@@ -40,8 +37,7 @@ export default function Hero() {
               className="bg-white/15 backdrop-blur-sm rounded-lg px-5 py-3 flex items-center gap-2 animate-fade-in-up"
               style={{ animationDelay: `${0.5 + index * 0.2}s` }}
             >
-              <span className="text-xl">{offering.icon}</span>
-              <span className="text-base md:text-lg">{offering.text}</span>
+              <span className="text-base md:text-lg font-medium">{offering.text}</span>
             </div>
           ))}
         </div>
