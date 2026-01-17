@@ -94,13 +94,16 @@ export default function PricingCards() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-background-warm"
+      className="section-padding bg-beige-DEFAULT"
       aria-label="Pricing"
     >
       <div className="container-custom">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-dark text-center mb-12">
-          Three partnership levels designed to meet you where you are
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-text-primary text-center mb-4 uppercase">
+          Choose Your Growth Path
         </h2>
+        <p className="text-xl text-text-secondary text-center mb-12">
+          Three partnership levels designed to meet you where you are
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {packages.map((pkg) => (
@@ -154,14 +157,22 @@ export default function PricingCards() {
 
               <a
                 href="/contact"
-                className={`block text-center ${
-                  pkg.featured ? 'btn-primary' : 'btn-secondary'
-                }`}
+                className="block text-center bg-coral-DEFAULT text-white px-6 py-3 rounded-lg font-semibold hover:bg-coral-light transition-colors"
               >
                 {pkg.ctaText}
               </a>
             </article>
           ))}
+        </div>
+        
+        {/* CTA Button */}
+        <div className="text-center mt-12">
+          <a
+            href="/pricing"
+            className="inline-block bg-coral-DEFAULT text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-light transition-colors"
+          >
+            Compare Packages & Pricing
+          </a>
         </div>
       </div>
     </section>

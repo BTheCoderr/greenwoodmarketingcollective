@@ -5,14 +5,16 @@ import Image from 'next/image'
 
 interface ValueSectionProps {
   headline: string
+  subheadline?: string
   content: string
   ctaText: string
   imageSide: 'left' | 'right'
-  background?: 'white' | 'light' | 'cream' | 'warm'
+  background?: 'white' | 'light' | 'cream' | 'warm' | 'dark-blue' | 'dark-teal'
 }
 
 export default function ValueSection({
   headline,
+  subheadline,
   content,
   ctaText,
   imageSide,
@@ -52,12 +54,17 @@ export default function ValueSection({
         return 'bg-background-cream'
       case 'warm':
         return 'bg-background-warm'
+      case 'dark-blue':
+        return 'bg-teal-dark'
+      case 'dark-teal':
+        return 'bg-teal-DEFAULT'
       default:
         return 'bg-white'
     }
   }
   
   const bgClass = getBgClass()
+  const isDark = background === 'dark-blue' || background === 'dark-teal'
 
   return (
     <section ref={sectionRef} className={`section-padding ${bgClass} opacity-0`}>
@@ -93,13 +100,21 @@ export default function ValueSection({
               imageSide === 'right' ? 'lg:order-2' : 'lg:order-1'
             }`}
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-dark mb-6">
+            {subheadline && (
+              <p className={`text-sm uppercase tracking-wide mb-2 ${isDark ? 'text-coral-DEFAULT' : 'text-coral-DEFAULT'}`}>
+                {subheadline}
+              </p>
+            )}
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 uppercase ${isDark ? 'text-white' : 'text-primary-dark'}`}>
               {headline}
             </h2>
-            <p className="text-lg text-text-secondary leading-relaxed mb-8">
+            <p className={`text-lg leading-relaxed mb-8 ${isDark ? 'text-white' : 'text-text-secondary'}`}>
               {content}
             </p>
-            <a href="/contact" className="btn-primary inline-block">
+            <a 
+              href="/contact" 
+              className="inline-block bg-coral-DEFAULT text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-light transition-colors"
+            >
               {ctaText}
             </a>
           </div>

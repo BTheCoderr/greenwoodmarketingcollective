@@ -78,11 +78,11 @@ export default function ServicesGrid() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-background-cream"
+      className="section-padding bg-teal-DEFAULT"
       aria-label="Services"
     >
       <div className="container-custom">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-dark text-center mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-beige-DEFAULT text-center mb-12 uppercase">
           The Collective Services
         </h2>
 
@@ -90,16 +90,26 @@ export default function ServicesGrid() {
           {services.map((service) => (
             <article
               key={service.title}
-              className="service-card bg-white border border-gray-200 rounded-xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 opacity-0"
+              className="service-card bg-transparent border-0 rounded-xl p-8 opacity-0"
             >
-              <h3 className="text-xl font-bold text-primary-dark mb-3">
+              <h3 className="text-xl font-bold text-beige-DEFAULT mb-3">
                 {service.title}
               </h3>
-              <p className="text-text-tertiary leading-relaxed">
+              <p className="text-beige-DEFAULT/90 leading-relaxed">
                 {service.description}
               </p>
             </article>
           ))}
+        </div>
+        
+        {/* CTA Button */}
+        <div className="text-center mt-12">
+          <a
+            href="/contact"
+            className="inline-block bg-coral-DEFAULT text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-light transition-colors"
+          >
+            What can we help with?
+          </a>
         </div>
       </div>
     </section>

@@ -33,24 +33,32 @@ export default function Intro() {
     <section
       id="intro"
       ref={sectionRef}
-      className="section-padding bg-background-warm"
+      className="section-padding bg-beige-DEFAULT"
       aria-label="Introduction"
     >
-      <div className="container-custom max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-dark mb-8">
-          Transform your marketing vision into measurable results.
-        </h2>
-        
-        <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-6 max-w-3xl mx-auto">
-          Growth-stage companies need marketing leadership that bridges strategy and execution. At{' '}
-          <span className="font-semibold text-primary">Greenwood Marketing Collective</span>, we provide fractional CMO expertise and product marketing excellence that turns your product vision into market success.
-        </p>
-        <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto">
-          We partner with scaling organizations that need C-level marketing leadership without the full-time investment. Our approach combines strategic oversight with hands-on execution, ensuring your product finds its market, your messaging resonates, and your go-to-market efforts drive sustainable growth.
-        </p>
-
-        {/* Divider */}
-        <div className="w-24 h-0.5 bg-primary/20 mx-auto rounded-full" />
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Headline */}
+          <div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-coral-DEFAULT mb-0 uppercase leading-tight">
+              Transform Your<br />
+              Marketing Vision<br />
+              Into Measurable<br />
+              Results
+            </h2>
+          </div>
+          
+          {/* Right Column - Text */}
+          <div>
+            <p className="text-lg md:text-xl text-text-primary leading-relaxed mb-6">
+              Growth-stage companies need marketing leadership that bridges strategy and execution. At{' '}
+              <span className="font-semibold">Greenwood Marketing Collective</span>, we provide fractional CMO expertise and product marketing excellence that turns your product vision into market success.
+            </p>
+            <p className="text-lg md:text-xl text-text-primary leading-relaxed">
+              We partner with scaling organizations that need C-level marketing leadership without the full-time investment. Our approach combines strategic oversight with hands-on execution, ensuring your product finds its market, your messaging resonates, and your go-to-market efforts drive sustainable growth.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )

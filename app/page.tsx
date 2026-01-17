@@ -1,4 +1,5 @@
 import Hero from '@/components/Sections/Hero'
+import ScrollingBanner from '@/components/Sections/ScrollingBanner'
 import Intro from '@/components/Sections/Intro'
 import ServicesGrid from '@/components/Sections/ServicesGrid'
 import PricingCards from '@/components/Sections/PricingCards'
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ScrollingBanner />
       <Intro />
       <ServicesGrid />
       <PricingCards />

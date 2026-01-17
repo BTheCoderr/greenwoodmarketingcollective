@@ -15,6 +15,19 @@ module.exports = {
           warm: '#F5F1EB',
           accent: '#D4A574',
         },
+        teal: {
+          DEFAULT: '#3D6B6B',
+          dark: '#253746',
+          light: '#5A8A8A',
+        },
+        coral: {
+          DEFAULT: '#E07A5F',
+          light: '#F4A261',
+        },
+        beige: {
+          DEFAULT: '#F5F1EB',
+          light: '#FAF8F5',
+        },
         text: {
           primary: '#1a1a2e',
           secondary: '#4a4a4a',
@@ -25,6 +38,7 @@ module.exports = {
           warm: '#F5F1EB',
           cream: '#FAF8F5',
           light: '#F8F9FA',
+          beige: '#F5F1EB',
         },
       },
       fontFamily: {
