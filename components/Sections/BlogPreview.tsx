@@ -41,6 +41,7 @@ export default function BlogPreview() {
             const cards = entry.target.querySelectorAll('.blog-card')
             cards.forEach((card, index) => {
               setTimeout(() => {
+                card.classList.remove('opacity-0')
                 card.classList.add('animate-fade-in-up')
               }, index * 100)
             })

@@ -11,6 +11,7 @@ export default function Intro() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in-up')
+            // Intro section doesn't start with opacity-0, so no need to remove it
           }
         })
       },

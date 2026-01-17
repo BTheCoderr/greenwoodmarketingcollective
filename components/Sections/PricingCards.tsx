@@ -73,6 +73,7 @@ export default function PricingCards() {
             const cards = entry.target.querySelectorAll('.pricing-card')
             cards.forEach((card, index) => {
               setTimeout(() => {
+                card.classList.remove('opacity-0')
                 card.classList.add('animate-fade-in-up')
               }, index * 150)
             })

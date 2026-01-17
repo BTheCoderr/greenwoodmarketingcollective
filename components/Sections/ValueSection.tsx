@@ -24,6 +24,7 @@ export default function ValueSection({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0')
             entry.target.classList.add('animate-fade-in-up')
           }
         })
