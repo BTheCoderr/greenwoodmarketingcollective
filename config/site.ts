@@ -11,9 +11,9 @@ export const siteConfig = {
   
   // Contact Information
   contact: {
-    email: 'hello@greenwoodmarketingcollective.com',
-    phone: '(XXX) XXX-XXXX', // Update with your phone number
-    location: 'Massachusetts, USA',
+    email: 'courtney@greenwoodmarketingcollective.com',
+    phone: '860-682-4172',
+    location: 'Massachusetts',
     workingArea: 'Working with clients anywhere',
   },
 
