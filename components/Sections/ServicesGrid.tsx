@@ -78,7 +78,7 @@ export default function ServicesGrid() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-white"
+      className="section-padding bg-background-cream"
       aria-label="Services"
     >
       <div className="container-custom">

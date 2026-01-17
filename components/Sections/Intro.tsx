@@ -33,7 +33,7 @@ export default function Intro() {
     <section
       id="intro"
       ref={sectionRef}
-      className="section-padding bg-primary-light"
+      className="section-padding bg-background-warm"
       aria-label="Introduction"
     >
       <div className="container-custom max-w-4xl text-center">

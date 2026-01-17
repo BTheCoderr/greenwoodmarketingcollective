@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 interface BlogPost {
   title: string
@@ -74,12 +75,20 @@ export default function BlogPreview() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10">
-          {blogPosts.map((post) => (
+          {blogPosts.map((post, index) => (
             <article
               key={post.title}
               className="blog-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 opacity-0"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/10 to-primary-dark/10" />
+              <div className="relative h-48 w-full">
+                <Image
+                  src={`https://images.unsplash.com/photo-${index === 0 ? '1552664730-d307ca884978' : index === 1 ? '1551434678-e076c223a0d7' : '1556761175-4b46a572b786'}?w=600&h=400&fit=crop&q=80`}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                />
+              </div>
               <div className="p-6">
                 <p className="text-sm text-text-light mb-2">{post.date}</p>
                 <h3 className="text-xl font-bold text-primary-dark mb-3">

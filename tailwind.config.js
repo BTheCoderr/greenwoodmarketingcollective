@@ -12,12 +12,19 @@ module.exports = {
           DEFAULT: '#4CAF50',
           dark: '#1a1a2e',
           light: '#F8F9FA',
+          warm: '#F5F1EB',
+          accent: '#D4A574',
         },
         text: {
           primary: '#1a1a2e',
           secondary: '#4a4a4a',
           tertiary: '#666666',
           light: '#999999',
+        },
+        background: {
+          warm: '#F5F1EB',
+          cream: '#FAF8F5',
+          light: '#F8F9FA',
         },
       },
       fontFamily: {

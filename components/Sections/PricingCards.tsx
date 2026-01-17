@@ -94,7 +94,7 @@ export default function PricingCards() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-primary-light"
+      className="section-padding bg-background-warm"
       aria-label="Pricing"
     >
       <div className="container-custom">

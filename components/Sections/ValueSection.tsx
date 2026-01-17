@@ -1,13 +1,14 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 interface ValueSectionProps {
   headline: string
   content: string
   ctaText: string
   imageSide: 'left' | 'right'
-  background?: 'white' | 'light'
+  background?: 'white' | 'light' | 'cream' | 'warm'
 }
 
 export default function ValueSection({
@@ -43,7 +44,20 @@ export default function ValueSection({
     }
   }, [])
 
-  const bgClass = background === 'light' ? 'bg-primary-light' : 'bg-white'
+  const getBgClass = () => {
+    switch (background) {
+      case 'light':
+        return 'bg-primary-light'
+      case 'cream':
+        return 'bg-background-cream'
+      case 'warm':
+        return 'bg-background-warm'
+      default:
+        return 'bg-white'
+    }
+  }
+  
+  const bgClass = getBgClass()
 
   return (
     <section ref={sectionRef} className={`section-padding ${bgClass} opacity-0`}>
@@ -59,11 +73,17 @@ export default function ValueSection({
               imageSide === 'right' ? 'lg:order-1' : 'lg:order-2'
             }`}
           >
-            <div className="relative w-full h-64 md:h-96 lg:h-[400px] rounded-xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary-dark/20">
-              {/* Placeholder for image - replace with actual image */}
-              <div className="absolute inset-0 flex items-center justify-center text-text-tertiary">
-                <span className="text-6xl">📈</span>
-              </div>
+            <div className="relative w-full h-64 md:h-96 lg:h-[400px] rounded-xl overflow-hidden">
+              <Image
+                src={imageSide === 'right' 
+                  ? 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80'
+                  : 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80'
+                }
+                alt={imageSide === 'right' ? 'Team collaboration and strategic planning' : 'Product marketing strategy and market positioning'}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+              />
             </div>
           </div>
 

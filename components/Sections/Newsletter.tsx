@@ -16,7 +16,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section className="section-padding bg-primary-light" aria-label="Newsletter">
+    <section className="section-padding bg-background-warm" aria-label="Newsletter">
       <div className="container-custom max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-dark mb-6">
           Stay in the loop

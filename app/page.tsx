@@ -18,14 +18,14 @@ export default function Home() {
         content="Strategic implementation is where vision meets reality. We help you translate high-level goals into actionable marketing plans, clear processes, and measurable KPIs. Our fractional CMO approach ensures your marketing operations align with business objectives while maintaining flexibility for rapid iteration."
         ctaText="Level-Up Today"
         imageSide="right"
-        background="white"
+        background="cream"
       />
       <ValueSection
         headline="Product Marketing Mastery"
         content="Effective product marketing goes beyond features—it's about positioning, buyer journeys, and market fit. We craft compelling narratives that resonate with your target audience, develop go-to-market strategies that drive adoption, and create sales enablement materials that convert. Our expertise spans from early-stage positioning to mature product launches."
         ctaText="Let's Chat"
         imageSide="left"
-        background="light"
+        background="warm"
       />
       <BlogPreview />
       <Newsletter />
