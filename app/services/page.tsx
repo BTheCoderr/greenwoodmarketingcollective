@@ -1,40 +1,224 @@
-import ServicesGrid from '@/components/Sections/ServicesGrid'
-import Intro from '@/components/Sections/Intro'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Marketing Services — Fractional CMO & Product Marketing | Greenwood Marketing Collective',
   description: 'Comprehensive marketing services including fractional CMO leadership, product marketing, go-to-market strategy, and sales enablement for growth-stage companies.',
 }
 
+const services = [
+  {
+    title: 'Fractional CMO Leadership',
+    subtitle: 'Executive-level strategy, team development, and performance accountability',
+    description: 'Provide C-level marketing leadership without the full-time investment. Includes strategic planning, marketing budget optimization, team development, performance measurement, and board-level reporting. Bridge the gap between vision and execution while building scalable marketing capabilities for growth-stage companies.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80',
+    imageSide: 'left' as const,
+  },
+  {
+    title: 'Product Marketing Excellence',
+    subtitle: 'Positioning, competitive differentiation, and customer-centric messaging',
+    description: 'Drive market success through strategic product positioning, competitive analysis, and go-to-market planning. Develop buyer personas, create messaging frameworks, conduct market research, and build sales enablement materials that connect your product\'s value with customer needs and market opportunities.',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a0d7?w=800&h=600&fit=crop&q=80',
+    imageSide: 'right' as const,
+  },
+  {
+    title: 'Go-To-Market Strategy & Execution',
+    subtitle: 'Comprehensive market entry and revenue acceleration',
+    description: 'Architect complete go-to-market strategies from market analysis to launch execution. Includes competitive positioning, channel strategy, pricing frameworks, launch sequencing, and performance measurement. Ensure your product captures market share from day one with coordinated messaging and execution across all touchpoints.',
+    image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=600&fit=crop&q=80',
+    imageSide: 'left' as const,
+  },
+  {
+    title: 'Operationalizing Your Vision',
+    subtitle: 'Transform strategic plans into actionable roadmaps and measurable outcomes',
+    description: 'Convert high-level marketing vision into executable strategies with clear processes, timelines, and accountability measures. Translate abstract concepts into measurable, repeatable activities that drive consistent growth. Bridge the gap between ambitious goals and day-to-day marketing operations.',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80',
+    imageSide: 'right' as const,
+  },
+  {
+    title: 'Sales Enablement Support',
+    subtitle: 'Content, training, and tools that bridge marketing and sales',
+    description: 'Create comprehensive sales support systems including content development, training programs, and process alignment. Develop sales collateral, competitive battlecards, objection handling guides, and buyer journey materials that empower sales teams to have knowledge-based interactions with prospects and close more deals.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80',
+    imageSide: 'left' as const,
+  },
+  {
+    title: 'Brand Storytelling & Narrative Creation',
+    subtitle: 'Compelling narratives that capture your unique story and perspective',
+    description: 'Uncover and articulate the authentic narrative that makes your business unique. Transform your company\'s history, values, and vision into coherent stories that resonate with your audience, create emotional connections with customers, differentiate you from competitors, and provide clear direction for all marketing efforts.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&q=80',
+    imageSide: 'right' as const,
+  },
+]
+
 export default function ServicesPage() {
   return (
     <>
+      {/* Hero Section */}
       <div className="pt-20">
-        <div className="section-padding bg-primary-light">
-          <div className="container-custom text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-dark mb-6">
-              Our Services
+        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&h=1080&fit=crop&q=80"
+              alt="Modern city buildings"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
+          <div className="relative z-10 container-custom px-5 text-center">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white uppercase tracking-tight">
+              Solutions for Success
             </h1>
-            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-              Comprehensive marketing solutions designed to drive growth and market success for scaling companies.
-            </p>
+          </div>
+          {/* Wave Divider */}
+          <div className="absolute bottom-0 left-0 right-0 z-10">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#F5F1EB"/>
+            </svg>
+          </div>
+        </section>
+      </div>
+
+      {/* Services Sections */}
+      <section className="section-padding bg-beige-DEFAULT">
+        <div className="container-custom">
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={`mb-20 last:mb-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                index % 2 === 0 ? '' : 'lg:flex-row-reverse'
+              }`}
+            >
+              {/* Image */}
+              <div className={index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}>
+                <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-teal-dark mb-4 uppercase">
+                  {service.title}
+                </h2>
+                <p className="text-lg md:text-xl text-coral-DEFAULT italic mb-6">
+                  {service.subtitle}
+                </p>
+                <p className="text-lg text-text-secondary leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Hourly Sessions Section */}
+      <section className="section-padding bg-coral-DEFAULT text-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase">
+                Hourly Sessions
+              </h2>
+              <div className="space-y-6">
+                <p className="text-xl font-semibold">
+                  Need clarity on your marketing - but not quite ready for a full project or retainer?
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Book a focused 1:1 session to tackle your biggest marketing questions, get expert insight, and walk away with next steps you can actually implement.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Whether you're navigating a rebrand, launching a new product, or just need an outside eye on your messaging - we'll use this time to get you unstuck and moving forward.
+                </p>
+                <Link
+                  href="/hourlysessions"
+                  className="inline-block bg-white text-coral-DEFAULT px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors mt-4"
+                >
+                  View our options & pricing
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-96 rounded-xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80"
+                alt="Collaborative work session"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <ServicesGrid />
-      <div className="section-padding bg-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-serif font-bold text-primary-dark mb-6">
-            What can we help with?
-          </h2>
-          <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
-            Whether you need strategic leadership, product marketing expertise, or complete go-to-market execution, we partner with you to deliver measurable results.
-          </p>
-          <a href="/contact" className="btn-primary inline-block">
-            Get Started
-          </a>
+      </section>
+
+      {/* Brand Quote Section */}
+      <section className="section-padding bg-gradient-to-br from-teal-dark via-teal-DEFAULT to-teal-light relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-coral-DEFAULT rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-beige-DEFAULT rounded-full blur-3xl" />
         </div>
-      </div>
+        <div className="relative z-10 container-custom text-center">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white italic max-w-4xl mx-auto">
+            "Authenticity is the cornerstone of memorable brands. We help you express yours with confidence."
+          </p>
+        </div>
+      </section>
+
+      {/* Meet Your CMO Section */}
+      <section className="section-padding bg-teal-DEFAULT text-white">
+        <div className="container-custom">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 uppercase text-center">
+            Meet Your Fractional CMO & Product Marketing Leader
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[500px] rounded-xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop&q=80"
+                alt="Courtney Greenwood"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-3xl font-bold mb-2">Courtney Greenwood</h3>
+                <p className="text-xl text-white/80">Founder & Owner</p>
+              </div>
+              <div className="space-y-4">
+                <p className="text-lg leading-relaxed">
+                  Is your growth-stage company ready to scale its marketing impact? Perhaps you need C-level marketing leadership without the full-time investment. Maybe your product needs stronger market positioning and go-to-market execution. Or maybe you have an ambitious vision that needs to be operationalized into measurable results. That's exactly where <span className="text-coral-DEFAULT font-semibold">Greenwood Marketing Collective</span> delivers.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  We provide fractional CMO expertise and product marketing leadership that transforms marketing from a cost center into your primary growth engine. From strategic planning and team development to product positioning and sales enablement, we bring the executive-level thinking and hands-on execution to accelerate your market success.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Backed by over 15+ years of product marketing and strategic leadership experience, with a proven track record of turning innovative visions into measurable business outcomes. No theoretical frameworks or generic playbooks—just strategic, results-driven marketing leadership with the operational excellence to make it happen.
+                </p>
+                <p className="text-lg leading-relaxed font-semibold">
+                  Let's transform your marketing vision into sustainable growth.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-block border-2 border-coral-DEFAULT text-coral-DEFAULT px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-DEFAULT hover:text-white transition-colors mt-4"
+              >
+                Ready to Jump In?
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
