@@ -69,22 +69,22 @@ export default function ServicesPage() {
             <div className="absolute inset-0 bg-black/20" />
           </div>
           <div className="relative z-10 container-custom px-5 text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white uppercase tracking-wide">
-              Solutions for Success
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white uppercase tracking-wide">
+              SOLUTIONS FOR SUCCESS
             </h1>
           </div>
           {/* Organic Wave Divider */}
           <div className="absolute bottom-0 left-0 right-0 z-10">
             <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-24">
-              <path d="M0,100 C200,80 400,60 600,70 C800,80 1000,90 1200,85 C1300,82.5 1400,85 1440,90 L1440,100 L0,100 Z" fill="#F5F1EB"/>
+              <path d="M0,100 C200,80 400,60 600,70 C800,80 1000,90 1200,85 C1300,82.5 1400,85 1440,90 L1440,100 L0,100 Z" fill="#e1dace"/>
             </svg>
           </div>
         </section>
       </div>
 
       {/* Services Sections */}
-      <section className="py-16 md:py-24 px-5 bg-beige-DEFAULT">
-        <div className="max-w-7xl mx-auto">
+      <section className="section-padding bg-cream brand-pattern-subtle">
+        <div className="container-custom">
           {services.map((service, index) => (
             <div
               key={service.title}
@@ -107,13 +107,13 @@ export default function ServicesPage() {
 
               {/* Content */}
               <div className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-teal-dark mb-3 uppercase leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-navy mb-3 uppercase leading-tight">
                   {service.title}
                 </h2>
-                <p className="text-base md:text-lg text-coral-DEFAULT italic mb-4 font-serif">
+                <p className="text-base md:text-lg text-coral italic mb-4 font-body">
                   {service.subtitle}
                 </p>
-                <p className="text-base md:text-lg text-text-primary leading-relaxed">
+                <p className="text-base md:text-lg text-text-primary leading-relaxed font-body">
                   {service.description}
                 </p>
               </div>
@@ -123,32 +123,32 @@ export default function ServicesPage() {
       </section>
 
       {/* Hourly Sessions Section */}
-      <section className="py-16 md:py-24 px-5 bg-coral-DEFAULT text-white relative overflow-hidden">
+      <section className="section-padding bg-coral text-white relative overflow-hidden">
         {/* Wave Divider Top */}
         <div className="absolute top-0 left-0 right-0 -mt-1">
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
-            <path d="M0,0 C200,20 400,40 600,35 C800,30 1000,20 1200,25 C1300,27.5 1400,25 1440,30 L1440,0 L0,0 Z" fill="#F5F1EB"/>
+            <path d="M0,0 C200,20 400,40 600,35 C800,30 1000,20 1200,25 C1300,27.5 1400,25 1440,30 L1440,0 L0,0 Z" fill="#e1dace"/>
           </svg>
         </div>
-        <div className="max-w-7xl mx-auto pt-8">
+        <div className="container-custom pt-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 uppercase">
-                Hourly Sessions
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 uppercase">
+                HOURLY SESSIONS
               </h2>
               <div className="space-y-4 md:space-y-6">
-                <p className="text-lg md:text-xl font-semibold">
+                <p className="text-lg md:text-xl font-semibold font-body">
                   Need clarity on your marketing - but not quite ready for a full project or retainer?
                 </p>
-                <p className="text-base md:text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed font-body">
                   Book a focused 1:1 session to tackle your biggest marketing questions, get expert insight, and walk away with next steps you can actually implement.
                 </p>
-                <p className="text-base md:text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed font-body">
                   Whether you're navigating a rebrand, launching a new product, or just need an outside eye on your messaging - we'll use this time to get you unstuck and moving forward.
                 </p>
                 <Link
                   href="/hourlysessions"
-                  className="inline-block bg-white text-coral-DEFAULT px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-gray-100 transition-colors mt-4"
+                  className="btn-coral inline-block mt-4"
                 >
                   View our options & pricing
                 </Link>
@@ -168,23 +168,23 @@ export default function ServicesPage() {
       </section>
 
       {/* Brand Quote Section */}
-      <section className="py-16 md:py-24 px-5 bg-gradient-to-br from-teal-dark via-teal-DEFAULT to-teal-light relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-navy via-deep-teal to-mist-blue relative overflow-hidden">
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-coral-DEFAULT rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-beige-DEFAULT rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-64 h-64 bg-coral rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cream rounded-full blur-3xl" />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white italic leading-relaxed">
+        <div className="relative z-10 container-custom text-center">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white italic leading-relaxed">
             "Authenticity is the cornerstone of memorable brands. We help you express yours with confidence."
           </p>
         </div>
       </section>
 
       {/* Meet Your CMO Section */}
-      <section className="py-16 md:py-24 px-5 bg-teal-DEFAULT text-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-12 uppercase text-center leading-tight">
-            Meet Your Fractional CMO & Product Marketing Leader
+      <section className="section-padding bg-deep-teal text-white">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-12 uppercase text-center leading-tight">
+            MEET YOUR FRACTIONAL CMO & PRODUCT MARKETING LEADER
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden">
@@ -198,26 +198,26 @@ export default function ServicesPage() {
             </div>
             <div className="space-y-4 md:space-y-6">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-2">Courtney Greenwood</h3>
-                <p className="text-lg md:text-xl text-white/80">Founder & Owner</p>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2">COURTNEY GREENWOOD</h3>
+                <p className="text-lg md:text-xl text-white/80 font-body">Founder & Owner</p>
               </div>
               <div className="space-y-4">
-                <p className="text-base md:text-lg leading-relaxed">
-                  Is your growth-stage company ready to scale its marketing impact? Perhaps you need C-level marketing leadership without the full-time investment. Maybe your product needs stronger market positioning and go-to-market execution. Or maybe you have an ambitious vision that needs to be operationalized into measurable results. That's exactly where <span className="text-coral-DEFAULT font-semibold">Greenwood Marketing Collective</span> delivers.
+                <p className="text-base md:text-lg leading-relaxed font-body">
+                  Is your growth-stage company ready to scale its marketing impact? Perhaps you need C-level marketing leadership without the full-time investment. Maybe your product needs stronger market positioning and go-to-market execution. Or maybe you have an ambitious vision that needs to be operationalized into measurable results. That's exactly where <span className="text-coral font-semibold">Greenwood Marketing Collective</span> delivers.
                 </p>
-                <p className="text-base md:text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed font-body">
                   We provide fractional CMO expertise and product marketing leadership that transforms marketing from a cost center into your primary growth engine. From strategic planning and team development to product positioning and sales enablement, we bring the executive-level thinking and hands-on execution to accelerate your market success.
                 </p>
-                <p className="text-base md:text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed font-body">
                   Backed by over 15+ years of product marketing and strategic leadership experience, with a proven track record of turning innovative visions into measurable business outcomes. No theoretical frameworks or generic playbooks—just strategic, results-driven marketing leadership with the operational excellence to make it happen.
                 </p>
-                <p className="text-base md:text-lg leading-relaxed font-semibold">
+                <p className="text-base md:text-lg leading-relaxed font-semibold font-body">
                   Let's transform your marketing vision into sustainable growth.
                 </p>
               </div>
               <Link
                 href="/contact"
-                className="inline-block border-2 border-coral-DEFAULT text-coral-DEFAULT px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-coral-DEFAULT hover:text-white transition-colors mt-4"
+                className="btn-secondary border-cream text-cream hover:bg-cream hover:text-deep-teal inline-block mt-4"
               >
                 Ready to Jump In?
               </Link>
