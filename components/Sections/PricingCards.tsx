@@ -1,12 +1,15 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 
 interface Package {
   title: string
+  tagline: string
   badge?: string
-  deliverables: string[]
-  idealFor: string
+  features: string[]
+  timeline: string
+  perfectFor: string[]
   pricing: string
   ctaText: string
   featured?: boolean
@@ -18,22 +21,30 @@ export default function PricingCards() {
   const packages: Package[] = [
     {
       title: 'Strategic Foundation',
+      tagline: 'Get clarity and direction',
       badge: undefined,
-      deliverables: [
+      features: [
         'Comprehensive marketing audit & competitive analysis',
         'Brand messaging framework development',
         'Customer journey mapping (2 key personas)',
         '90-day action plan with clear priorities',
         'Monthly strategy sessions for 3 months',
       ],
-      idealFor: 'Early-stage companies, rebrands, marketing reset',
-      pricing: 'Choose Your Growth Path',
+      timeline: '6-8 weeks + 3 months monthly check-ins',
+      perfectFor: [
+        'Early-stage companies',
+        'Rebrands or pivots',
+        'Marketing reset',
+      ],
+      pricing: 'Starting at $6,500',
       ctaText: 'Get Started',
+      featured: false,
     },
     {
       title: 'Growth Accelerator',
+      tagline: 'Strategy + execution + ongoing leadership',
       badge: 'Most Popular',
-      deliverables: [
+      features: [
         'Everything in Strategic Foundation',
         'Campaign creation & optimization (2 campaigns)',
         'Fractional CMO support (15 hours/month)',
@@ -41,24 +52,37 @@ export default function PricingCards() {
         'Direct access via Slack for strategic questions',
         '6 months of hands-on partnership',
       ],
-      idealFor: 'Growing companies, product launches, scaling teams',
-      pricing: 'Compare Packages & Pricing',
+      timeline: '8-10 weeks + 6 months fractional support',
+      perfectFor: [
+        'Growing companies',
+        'Product launches',
+        'Scaling teams',
+      ],
+      pricing: 'Starting at $10,500',
       ctaText: 'Get Started',
       featured: true,
     },
     {
       title: 'Market Mastery',
+      tagline: 'Full fractional CMO partnership',
       badge: undefined,
-      deliverables: [
+      features: [
         'Comprehensive fractional CMO partnership',
         'Full go-to-market launch management',
         'Advanced customer research & segmentation',
         'Multi-channel campaign development & execution',
-        'And More…',
+        'Unlimited strategic consultation',
+        'Custom scope based on your needs',
       ],
-      idealFor: 'Series A+, complex markets, enterprise clients',
-      pricing: 'Contact for pricing',
+      timeline: 'Fully customized to business needs',
+      perfectFor: [
+        'Series A+ companies',
+        'Complex markets',
+        'Enterprise clients',
+      ],
+      pricing: 'Custom pricing',
       ctaText: "Let's Chat",
+      featured: false,
     },
   ]
 
@@ -94,85 +118,113 @@ export default function PricingCards() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-beige-DEFAULT"
+      className="section-padding bg-white"
       aria-label="Pricing"
     >
       <div className="container-custom">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-text-primary text-center mb-4 uppercase">
-          Choose Your Growth Path
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-center text-navy uppercase mb-4">
+          CHOOSE YOUR GROWTH PATH
         </h2>
-        <p className="text-xl text-text-secondary text-center mb-12">
+        <p className="text-lg text-center text-text-secondary mb-12 font-body">
           Three partnership levels designed to meet you where you are
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg) => (
             <article
               key={pkg.title}
-              className={`pricing-card bg-white rounded-xl p-8 md:p-10 hover:-translate-y-1 transition-all duration-300 opacity-0 ${
-                pkg.featured
-                  ? 'border-3 border-primary shadow-xl lg:scale-105'
-                  : 'border border-gray-200 shadow-md'
+              className={`pricing-card card-package card opacity-0 ${
+                pkg.featured ? 'featured' : ''
               }`}
             >
+              {/* Badge */}
               {pkg.badge && (
-                <div
-                  className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 ${
-                    pkg.featured
-                      ? 'bg-primary text-white'
-                      : 'bg-gray-100 text-text-primary'
-                  }`}
-                >
+                <div className="absolute -top-3 right-6 bg-gold text-navy px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
                   {pkg.badge}
                 </div>
               )}
               
-              <h3 className="text-2xl font-bold text-primary-dark mb-6">
+              {/* Title */}
+              <h3 className="text-2xl font-heading font-bold text-navy uppercase mb-2">
                 {pkg.title}
               </h3>
+              
+              {/* Tagline */}
+              <p className="text-base text-coral font-semibold mb-6 font-body">
+                {pkg.tagline}
+              </p>
 
-              <ul className="space-y-3 mb-6">
-                {pkg.deliverables.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="text-primary mt-1">✓</span>
-                    <span className="text-text-secondary leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
+              {/* Features */}
               <div className="mb-6">
-                <p className="text-text-secondary text-sm mb-2">Ideal for:</p>
-                <p className="text-text-primary leading-relaxed">
-                  {pkg.idealFor}
+                <h4 className="text-sm font-semibold text-navy uppercase mb-3 font-body">
+                  What's Included:
+                </h4>
+                <ul className="space-y-2">
+                  {pkg.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-deep-teal mt-1 font-bold">✓</span>
+                      <span className="text-text-secondary text-sm leading-relaxed font-body">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Timeline */}
+              <div className="mb-6 pb-6 border-b border-border">
+                <h4 className="text-sm font-semibold text-navy uppercase mb-2 font-body">
+                  Timeline:
+                </h4>
+                <p className="text-text-secondary text-sm font-body">
+                  {pkg.timeline}
                 </p>
               </div>
 
+              {/* Perfect For */}
               <div className="mb-6">
-                <p className="text-2xl font-bold text-primary-dark">
+                <h4 className="text-sm font-semibold text-navy uppercase mb-3 font-body">
+                  Perfect for:
+                </h4>
+                <ul className="space-y-2">
+                  {pkg.perfectFor.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-coral mt-1">•</span>
+                      <span className="text-text-secondary text-sm leading-relaxed font-body">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Pricing */}
+              <div className="mb-6">
+                <p className="text-2xl font-bold text-navy font-body">
                   {pkg.pricing}
                 </p>
               </div>
 
-              <a
+              {/* CTA */}
+              <Link
                 href="/contact"
-                className="block text-center bg-coral-DEFAULT text-white px-6 py-3 rounded-lg font-semibold hover:bg-coral-light transition-colors"
+                className={`block text-center transition-all duration-300 ${
+                  pkg.featured
+                    ? 'btn-primary'
+                    : 'btn-secondary'
+                }`}
               >
                 {pkg.ctaText}
-              </a>
+              </Link>
             </article>
           ))}
         </div>
         
-        {/* CTA Button */}
+        {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <a
-            href="/pricing"
-            className="inline-block bg-coral-DEFAULT text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-light transition-colors"
-          >
+          <Link href="/pricing" className="btn-coral">
             Compare Packages & Pricing
-          </a>
+          </Link>
         </div>
       </div>
     </section>

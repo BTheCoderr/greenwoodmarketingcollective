@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import Navigation from './Navigation'
 import MobileMenu from './MobileMenu'
 import { siteConfig } from '@/config/site'
@@ -22,47 +23,48 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-md'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
       }`}
       role="banner"
     >
       <nav
-        className="container-custom flex items-center justify-between h-20 md:h-20 lg:h-20"
+        className="container-custom flex items-center justify-between h-20"
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <a
+        <Link
           href="/"
-          className={`text-xl font-bold transition-colors duration-300 ${
-            isScrolled ? 'text-primary-dark' : 'text-white'
+          className={`text-xl font-heading font-bold transition-colors duration-300 ${
+            isScrolled ? 'text-navy' : 'text-white'
           }`}
           aria-label={`${siteConfig.name} - Home`}
         >
           {siteConfig.name}
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           <Navigation isScrolled={isScrolled} />
-          <a
+          <Link
             href="/contact"
-            className={`btn-primary py-3 px-8 text-base ${
-              isScrolled ? '' : 'bg-white text-primary-dark hover:bg-gray-100'
+            className={`btn-primary ${
+              isScrolled ? '' : 'bg-white text-deep-teal hover:bg-cream'
             }`}
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           className={`lg:hidden p-2 transition-colors duration-300 ${
-            isScrolled ? 'text-primary-dark' : 'text-white'
+            isScrolled ? 'text-navy' : 'text-white'
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
+          type="button"
         >
           {isMobileMenuOpen ? (
             <svg

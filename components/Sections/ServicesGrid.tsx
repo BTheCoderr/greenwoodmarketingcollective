@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-
+import Link from 'next/link'
 import Icon from '@/components/Icons/Icon'
 
 interface Service {
   icon: string
   title: string
   description: string
+  outcome: string
+  href: string
 }
 
 export default function ServicesGrid() {
@@ -17,32 +19,44 @@ export default function ServicesGrid() {
     {
       icon: 'cmo',
       title: 'Fractional CMO Leadership',
-      description: 'that provides executive-level strategy, team development, and performance accountability',
+      description: 'Drive revenue with executive-level strategy, team development, and performance accountability—without the full-time investment.',
+      outcome: 'Scale your marketing leadership',
+      href: '/services#fractional-cmo',
     },
     {
       icon: 'product',
       title: 'Product Marketing Excellence',
-      description: 'that drives positioning, competitive differentiation, and customer-centric messaging',
-    },
-    {
-      icon: 'vision',
-      title: 'Operationalizing your Vision',
-      description: 'to transform strategic plans into actionable roadmaps and measureable outcomes',
-    },
-    {
-      icon: 'sales',
-      title: 'Sales Enablement Support',
-      description: 'that bridges marketing and sales with compelling narratives and conversion tools',
+      description: 'Drive revenue with focused product launch strategy, competitive positioning, and customer-centric messaging.',
+      outcome: 'Accelerate product success',
+      href: '/services#product-marketing',
     },
     {
       icon: 'gtm',
       title: 'Go-To-Market Strategy & Execution',
-      description: 'that accelerates market entry and revenue growth',
+      description: 'Drive revenue with comprehensive market entry strategies, launch sequencing, and multi-channel execution.',
+      outcome: 'Capture market share from day one',
+      href: '/services#go-to-market',
+    },
+    {
+      icon: 'vision',
+      title: 'Operationalizing Your Vision',
+      description: 'Drive revenue by transforming strategic plans into actionable roadmaps with clear processes and measurable outcomes.',
+      outcome: 'Turn vision into reality',
+      href: '/services#operationalizing',
+    },
+    {
+      icon: 'sales',
+      title: 'Sales Enablement Support',
+      description: 'Drive revenue with content, training, and tools that bridge marketing and sales for higher conversion rates.',
+      outcome: 'Close more deals',
+      href: '/services#sales-enablement',
     },
     {
       icon: 'brand',
       title: 'Brand Storytelling & Narrative Creation',
-      description: 'that captures your unique story and perspective',
+      description: 'Drive revenue with compelling narratives that capture your unique story and create emotional connections with customers.',
+      outcome: 'Build memorable brand',
+      href: '/services#brand-storytelling',
     },
   ]
 
@@ -78,38 +92,61 @@ export default function ServicesGrid() {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-teal-DEFAULT"
+      className="section-padding bg-cream"
       aria-label="Services"
     >
       <div className="container-custom">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-beige-DEFAULT text-center mb-12 uppercase">
-          The Collective Services
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-center text-navy uppercase mb-4">
+          DRIVE REVENUE WITH STRATEGIC MARKETING LEADERSHIP
         </h2>
+        <p className="text-lg text-center text-text-secondary mb-12 max-w-2xl mx-auto font-body">
+          Comprehensive marketing services designed for growth-stage companies
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <article
               key={service.title}
-              className="service-card bg-transparent border-0 rounded-xl p-8 opacity-0"
+              className="service-card card opacity-0"
             >
-              <h3 className="text-xl font-bold text-beige-DEFAULT mb-3">
+              {/* Icon */}
+              <div className="mb-6">
+                <Icon name={service.icon} className="w-12 h-12 text-deep-teal" />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-heading font-bold text-navy uppercase mb-3">
                 {service.title}
               </h3>
-              <p className="text-beige-DEFAULT/90 leading-relaxed">
+
+              {/* Description */}
+              <p className="text-base text-text-secondary leading-relaxed mb-4 flex-grow">
                 {service.description}
               </p>
+
+              {/* Outcome Badge */}
+              <div className="mb-6">
+                <span className="inline-block px-3 py-1 bg-mist-blue/30 text-deep-teal text-sm font-semibold rounded-full">
+                  {service.outcome}
+                </span>
+              </div>
+
+              {/* Link */}
+              <Link href={service.href} className="link">
+                Learn More
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </article>
           ))}
         </div>
         
         {/* CTA Button */}
         <div className="text-center mt-12">
-          <a
-            href="/contact"
-            className="inline-block bg-coral-DEFAULT text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral-light transition-colors"
-          >
+          <Link href="/contact" className="btn-primary">
             What can we help with?
-          </a>
+          </Link>
         </div>
       </div>
     </section>
