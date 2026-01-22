@@ -8,8 +8,33 @@ import Carousel from '@/components/Sections/Carousel'
 import BlogPreview from '@/components/Sections/BlogPreview'
 import Newsletter from '@/components/Sections/Newsletter'
 
+// Types
+interface ClientLogo {
+  id: string
+  name: string
+  logo: string
+  alt: string
+}
+
+interface Testimonial {
+  id: string
+  quote: string
+  author: string
+  role: string
+  company: string
+}
+
+interface CarouselItem {
+  id: string
+  image: string
+  title: string
+  description: string
+  ctaText: string
+  ctaHref: string
+}
+
 // Sample carousel items - replace with real data
-const carouselItems = [
+const carouselItems: CarouselItem[] = [
   {
     id: '1',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80',
@@ -45,7 +70,7 @@ const carouselItems = [
 ]
 
 // Client logos - Add real logos when available
-const clientLogos = [
+const clientLogos: ClientLogo[] = [
   // Placeholder - replace with actual client logos
   // {
   //   id: '1',
@@ -56,7 +81,7 @@ const clientLogos = [
 ]
 
 // Testimonials - Add more quotes when available
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     id: '1',
     quote: 'Greenwood Marketing Collective transformed our go-to-market strategy. Within 6 months, we saw a 40% increase in qualified leads and closed our Series A. Their fractional CMO approach gave us the leadership we needed without the overhead.',
