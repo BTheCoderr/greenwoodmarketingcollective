@@ -7,48 +7,93 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Brand Colors - Exact from Brand Guide
       colors: {
+        'deep-teal': '#2f535d',
+        'cream': '#e1dace',
+        'mist-blue': '#b5c1d2',
+        'gold': '#ca9b2e',
+        'navy': '#223659',
+        'coral': '#df7464',
+        // Semantic aliases
         primary: {
-          DEFAULT: '#4CAF50',
-          dark: '#1a1a2e',
-          light: '#F8F9FA',
-          warm: '#F5F1EB',
-          accent: '#D4A574',
+          DEFAULT: '#2f535d',
+          hover: '#223659',
         },
-        teal: {
-          DEFAULT: '#3D6B6B',
-          dark: '#253746',
-          light: '#5A8A8A',
+        secondary: {
+          DEFAULT: '#df7464',
         },
-        coral: {
-          DEFAULT: '#E07A5F',
-          light: '#F4A261',
-        },
-        beige: {
-          DEFAULT: '#F5F1EB',
-          light: '#FAF8F5',
-        },
-        text: {
-          primary: '#1a1a2e',
-          secondary: '#4a4a4a',
-          tertiary: '#666666',
-          light: '#999999',
+        accent: {
+          DEFAULT: '#ca9b2e',
         },
         background: {
-          warm: '#F5F1EB',
-          cream: '#FAF8F5',
-          light: '#F8F9FA',
-          beige: '#F5F1EB',
+          DEFAULT: '#e1dace',
+          light: '#f5f3f0',
+        },
+        text: {
+          primary: '#223659',
+          secondary: '#4a5568',
+        },
+        border: {
+          DEFAULT: '#e2e8f0',
+        },
+        // Legacy support (will be phased out)
+        teal: {
+          DEFAULT: '#2f535d',
+          dark: '#223659',
+          light: '#b5c1d2',
+        },
+        beige: {
+          DEFAULT: '#e1dace',
+          light: '#f5f3f0',
         },
       },
+      // Typography - Brand Fonts
       fontFamily: {
-        serif: ['Playfair Display', 'Merriweather', 'serif'],
-        sans: ['Inter', 'Open Sans', 'system-ui', 'sans-serif'],
+        heading: ['Tenez', 'serif'], // Bold, ALL CAPS
+        body: ['Montserrat', 'sans-serif'], // Regular
+        // Legacy support
+        serif: ['Tenez', 'serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
+      fontSize: {
+        'hero': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'h1': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h2': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h3': ['1.875rem', { lineHeight: '1.3' }],
+      },
+      // Spacing
       spacing: {
-        'section': '80px',
-        'section-mobile': '40px',
+        'section': '5rem', // 80px desktop
+        'section-mobile': '3rem', // 48px mobile
+        'section-tablet': '4rem', // 64px tablet
       },
+      // Container
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1.25rem', // 20px
+          sm: '1.5rem', // 24px
+          lg: '2rem', // 32px
+        },
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1200px', // Max width 1200px
+        },
+      },
+      // Border Radius
+      borderRadius: {
+        'button': '0.75rem', // 12px
+        'card': '1rem', // 16px
+      },
+      // Shadows
+      boxShadow: {
+        'card': '0 4px 12px rgba(34, 54, 89, 0.08)',
+        'card-hover': '0 12px 24px rgba(34, 54, 89, 0.12)',
+      },
+      // Animations
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
         'fade-in-up': 'fadeInUp 0.8s ease-out',

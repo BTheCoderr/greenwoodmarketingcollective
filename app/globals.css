@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Brand Fonts - Tenez Bold (headings) and Montserrat Regular (body) */
+@import url('https://fonts.googleapis.com/css2?family=Tenez:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @layer base {
   html {
@@ -10,31 +11,115 @@
   }
   
   body {
-    @apply font-sans text-text-primary antialiased;
+    @apply font-body text-text-primary antialiased;
+    font-size: 1rem; /* 16px base */
+    line-height: 1.6;
   }
   
-  h1, h2, h3, h4 {
-    @apply font-serif;
+  /* Headings - Tenez Bold, ALL CAPS */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold uppercase;
+    letter-spacing: -0.01em;
+  }
+  
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 4.5rem); /* Responsive: 36px-72px */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-size: clamp(1.875rem, 4vw, 3rem); /* Responsive: 30px-48px */
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 1.875rem); /* Responsive: 24px-30px */
+    line-height: 1.3;
   }
 }
 
 @layer components {
+  /* Primary Button - Deep Teal background, Cream text */
   .btn-primary {
-    @apply bg-primary text-white px-10 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-deep-teal text-cream px-8 py-3.5 rounded-button text-base font-semibold transition-all duration-300;
+    font-family: theme('fontFamily.body');
+    box-shadow: theme('boxShadow.md');
   }
   
+  .btn-primary:hover {
+    @apply bg-navy -translate-y-0.5;
+    box-shadow: theme('boxShadow.lg');
+  }
+  
+  .btn-primary:active {
+    @apply translate-y-0;
+  }
+  
+  /* Secondary Button - Outline Deep Teal */
   .btn-secondary {
-    @apply bg-transparent text-primary border-2 border-primary px-10 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-transparent text-deep-teal border-2 border-deep-teal px-8 py-3.5 rounded-button text-base font-semibold transition-all duration-300;
+    font-family: theme('fontFamily.body');
   }
   
+  .btn-secondary:hover {
+    @apply bg-deep-teal text-cream -translate-y-0.5;
+    box-shadow: theme('boxShadow.md');
+  }
+  
+  /* Coral CTA Button */
+  .btn-coral {
+    @apply bg-coral text-white px-8 py-3.5 rounded-button text-base font-semibold transition-all duration-300;
+    font-family: theme('fontFamily.body');
+    box-shadow: theme('boxShadow.md');
+  }
+  
+  .btn-coral:hover {
+    @apply bg-[#c85a4a] -translate-y-0.5;
+    box-shadow: theme('boxShadow.lg');
+  }
+  
+  /* Section Padding */
   .section-padding {
-    @apply py-20 px-5 md:py-section;
+    @apply py-section-mobile px-5 md:py-section-tablet lg:py-section;
   }
   
+  /* Container - Max width 1200px */
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-[1200px] mx-auto px-5;
   }
   
+  /* Card Styles */
+  .card {
+    @apply bg-white border border-border rounded-card p-8 transition-all duration-300;
+    box-shadow: theme('boxShadow.card');
+  }
+  
+  .card:hover {
+    @apply -translate-y-1 border-deep-teal;
+    box-shadow: theme('boxShadow.card-hover');
+  }
+  
+  /* Service Card */
+  .card-service {
+    @apply h-full flex flex-col;
+  }
+  
+  .card-service .link {
+    @apply text-coral font-semibold no-underline inline-flex items-center gap-2 transition-all duration-200;
+  }
+  
+  .card-service:hover .link {
+    @apply underline translate-x-1;
+  }
+  
+  /* Package Card */
+  .card-package.featured {
+    @apply border-2 border-gold;
+    box-shadow: theme('boxShadow.xl');
+  }
+  
+  /* Animations */
   .fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
