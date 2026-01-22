@@ -38,8 +38,8 @@ export default function Navigation({ isScrolled }: NavigationProps) {
               onMouseLeave={() => setIsIndustriesOpen(false)}
             >
               <button
-                className={`transition-colors duration-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded ${
-                  isScrolled ? 'text-text-primary' : 'text-white'
+                className={`transition-colors duration-300 hover:text-coral focus:outline-none focus:ring-2 focus:ring-deep-teal focus:ring-offset-2 rounded font-body ${
+                  isScrolled ? 'text-navy' : 'text-white'
                 }`}
                 aria-expanded={isIndustriesOpen}
                 aria-haspopup="true"
@@ -48,14 +48,14 @@ export default function Navigation({ isScrolled }: NavigationProps) {
               </button>
               {isIndustriesOpen && (
                 <ul
-                  className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[200px]"
+                  className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[200px] z-50"
                   role="menu"
                 >
                   {item.dropdown.map((subItem) => (
                     <li key={subItem.label}>
                       <a
                         href={subItem.href}
-                        className="block px-4 py-2 text-text-primary hover:bg-primary-light transition-colors"
+                        className="block px-4 py-2 text-navy hover:bg-cream hover:text-deep-teal transition-colors font-body"
                         role="menuitem"
                       >
                         {subItem.label}
@@ -68,8 +68,8 @@ export default function Navigation({ isScrolled }: NavigationProps) {
           ) : (
             <a
               href={item.href}
-              className={`transition-colors duration-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded ${
-                isScrolled ? 'text-text-primary' : 'text-white'
+              className={`transition-colors duration-300 hover:text-coral focus:outline-none focus:ring-2 focus:ring-deep-teal focus:ring-offset-2 rounded font-body ${
+                isScrolled ? 'text-navy' : 'text-white'
               }`}
             >
               {item.label}
