@@ -2,6 +2,8 @@ import Hero from '@/components/Sections/Hero'
 import Intro from '@/components/Sections/Intro'
 import ServicesGrid from '@/components/Sections/ServicesGrid'
 import PricingCards from '@/components/Sections/PricingCards'
+import ClientLogos from '@/components/Sections/ClientLogos'
+import Testimonials from '@/components/Sections/Testimonials'
 import Carousel from '@/components/Sections/Carousel'
 import BlogPreview from '@/components/Sections/BlogPreview'
 import Newsletter from '@/components/Sections/Newsletter'
@@ -42,13 +44,51 @@ const carouselItems = [
   },
 ]
 
+// Client logos - Add real logos when available
+const clientLogos = [
+  // Placeholder - replace with actual client logos
+  // {
+  //   id: '1',
+  //   name: 'Client Name',
+  //   logo: '/logos/client-logo.png',
+  //   alt: 'Client Name logo',
+  // },
+]
+
+// Testimonials - Add more quotes when available
+const testimonials = [
+  {
+    id: '1',
+    quote: 'Greenwood Marketing Collective transformed our go-to-market strategy. Within 6 months, we saw a 40% increase in qualified leads and closed our Series A. Their fractional CMO approach gave us the leadership we needed without the overhead.',
+    author: 'Sarah Chen',
+    role: 'CEO',
+    company: 'HealthTech Innovations',
+  },
+  {
+    id: '2',
+    quote: "Courtney's product marketing expertise helped us reposition our solution and capture 25% more market share. The strategic framework she built continues to guide our marketing decisions today.",
+    author: 'Michael Rodriguez',
+    role: 'VP of Marketing',
+    company: 'SaaS Solutions Inc.',
+  },
+  {
+    id: '3',
+    quote: 'Working with Greenwood Marketing Collective was like having a CMO on demand. They helped us build our marketing team, establish processes, and drive measurable growth. Best investment we made.',
+    author: 'Jennifer Park',
+    role: 'Founder',
+    company: 'Mission-Driven Nonprofit',
+  },
+]
+
 export default function Home() {
   return (
     <>
       <Hero />
+      <ClientLogos logos={clientLogos} />
       <Intro />
       <ServicesGrid />
       <PricingCards />
+      <Testimonials testimonials={testimonials} autoplay={true} autoplayInterval={6000} />
       <Carousel items={carouselItems} autoplay={true} autoplayInterval={6000} />
       <BlogPreview />
       <Newsletter />
