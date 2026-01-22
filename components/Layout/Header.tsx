@@ -12,8 +12,11 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
+      setIsScrolled(window.scrollY > 50)
     }
+
+    // Check initial scroll position
+    handleScroll()
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -24,7 +27,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm'
-          : 'bg-transparent'
+          : 'bg-white/80 backdrop-blur-sm'
       }`}
       role="banner"
     >
@@ -35,9 +38,7 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className={`text-xl font-heading font-bold transition-colors duration-300 ${
-            isScrolled ? 'text-navy' : 'text-white'
-          }`}
+          className="text-xl font-heading font-bold text-navy transition-colors duration-300 hover:text-deep-teal"
           aria-label={`${siteConfig.name} - Home`}
         >
           {siteConfig.name}
@@ -45,12 +46,10 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
-          <Navigation isScrolled={isScrolled} />
+          <Navigation isScrolled={true} />
           <Link
             href="/contact"
-            className={`btn-primary ${
-              isScrolled ? '' : 'bg-white text-deep-teal hover:bg-cream'
-            }`}
+            className="btn-primary"
           >
             Get Started
           </Link>
@@ -58,9 +57,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className={`lg:hidden p-2 transition-colors duration-300 ${
-            isScrolled ? 'text-navy' : 'text-white'
-          }`}
+          className="lg:hidden p-2 text-navy hover:text-coral transition-colors duration-300"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}

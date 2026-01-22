@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface NavigationProps {
   isScrolled: boolean
@@ -15,7 +16,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
     { label: 'Packages & Pricing', href: '/pricing' },
     {
       label: 'Industries',
-      href: '#',
+      href: '/industries',
       dropdown: [
         { label: 'Health Tech', href: '/industries/health-tech' },
         { label: 'Healthcare Providers', href: '/industries/healthcare-providers' },
@@ -38,9 +39,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
               onMouseLeave={() => setIsIndustriesOpen(false)}
             >
               <button
-                className={`transition-colors duration-300 hover:text-coral focus:outline-none focus:ring-2 focus:ring-deep-teal focus:ring-offset-2 rounded font-body ${
-                  isScrolled ? 'text-navy' : 'text-white'
-                }`}
+                className="text-navy hover:text-coral transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-deep-teal focus:ring-offset-2 rounded font-body"
                 aria-expanded={isIndustriesOpen}
                 aria-haspopup="true"
               >
@@ -48,32 +47,30 @@ export default function Navigation({ isScrolled }: NavigationProps) {
               </button>
               {isIndustriesOpen && (
                 <ul
-                  className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[200px] z-50"
+                  className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[200px] z-50 border border-border"
                   role="menu"
                 >
                   {item.dropdown.map((subItem) => (
                     <li key={subItem.label}>
-                      <a
+                      <Link
                         href={subItem.href}
                         className="block px-4 py-2 text-navy hover:bg-cream hover:text-deep-teal transition-colors font-body"
                         role="menuitem"
                       >
                         {subItem.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               )}
             </div>
           ) : (
-            <a
+            <Link
               href={item.href}
-              className={`transition-colors duration-300 hover:text-coral focus:outline-none focus:ring-2 focus:ring-deep-teal focus:ring-offset-2 rounded font-body ${
-                isScrolled ? 'text-navy' : 'text-white'
-              }`}
+              className="text-navy hover:text-coral transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-deep-teal focus:ring-offset-2 rounded font-body"
             >
               {item.label}
-            </a>
+            </Link>
           )}
         </li>
       ))}
