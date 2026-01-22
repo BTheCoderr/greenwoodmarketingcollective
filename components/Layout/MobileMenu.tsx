@@ -82,7 +82,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       {item.label}
                     </Link>
                     <ul className="ml-4 mt-2 space-y-2">
-                      {item.submenu.map((subItem) => (
+                      {item.submenu?.map((subItem) => (
                         <li key={subItem.label}>
                           <Link
                             href={subItem.href}
