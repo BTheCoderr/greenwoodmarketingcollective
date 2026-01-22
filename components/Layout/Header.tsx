@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navigation from './Navigation'
 import MobileMenu from './MobileMenu'
 import { siteConfig } from '@/config/site'
@@ -9,6 +10,7 @@ import { siteConfig } from '@/config/site'
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [logoError, setLogoError] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,10 +40,39 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-heading font-bold text-navy transition-colors duration-300 hover:text-deep-teal"
+          className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80"
           aria-label={`${siteConfig.name} - Home`}
         >
-          {siteConfig.name}
+          {!logoError ? (
+            <>
+              {/* Logo Image - Add logo.png to /public folder */}
+              <div className="relative h-10 w-10 md:h-12 md:w-12 flex-shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt={`${siteConfig.name} logo`}
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                  priority
+                  onError={() => setLogoError(true)}
+                />
+              </div>
+              {/* Logo Text */}
+              <div className="hidden md:block">
+                <div className="text-lg md:text-xl font-heading font-bold text-navy leading-tight">
+                  GREENWOOD
+                </div>
+                <div className="text-xs md:text-sm font-body text-navy/70 uppercase tracking-wider">
+                  MARKETING COLLECTIVE
+                </div>
+              </div>
+            </>
+          ) : (
+            /* Fallback Text Logo */
+            <div className="text-lg md:text-xl font-heading font-bold text-navy">
+              {siteConfig.name}
+            </div>
+          )}
         </Link>
 
         {/* Desktop Navigation */}
